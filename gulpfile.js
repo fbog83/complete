@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var config = require('./gulp.config')();
+var watchify = require('watchify');
 var $ = require('gulp-load-plugins')({ lazy: true });
 
 var logTemplate = "*********************************************"
@@ -29,7 +30,6 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('./dist'))
 });
 
-gulp.task('watchify', ['browserify']);
 
 function log(msg) {
   if (typeof(msg) === 'object') {
