@@ -21,6 +21,8 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
-    "browserify": "^11.2.0"
+    "browserify": "^11.2.0",
+    "gulp-batch": "^1.0.5",
+    "gulp-watch": "^4.3.5"
   }
 }

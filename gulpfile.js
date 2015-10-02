@@ -1,10 +1,12 @@
 var gulp = require('gulp');
 var config = require('./gulp.config')();
-var watchify = require('watchify');
 var $ = require('gulp-load-plugins')({ lazy: true });
 
 var logTemplate = "*********************************************"
                 + "*********************************************";
+
+var logWatch = "------------------------------------"
+             + "---------------------------";
 
 gulp.task('hello', function() {
   log(logTemplate);
@@ -22,6 +24,8 @@ gulp.task('sass', ['hello'], function () {
 });
 
 gulp.task('scripts', function() {
+    log(logWatch);
+
     gulp.src('./app.js')
         .pipe($.browserify({
           insertGlobals : true,
@@ -30,6 +34,11 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('./dist'))
 });
 
+gulp.task('watch', function () {
+    $.watch('./**/*.js', $.batch(function (events, done) {
+        gulp.start('scripts', done);
+    }));
+});
 
 function log(msg) {
   if (typeof(msg) === 'object') {
