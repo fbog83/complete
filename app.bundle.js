@@ -7,8 +7,7 @@ dashboard.dashboarTest();
 'use strict';
 
 exports.dashboarTest = function() {
-  console.log(Http);
-  var request = new Http.Get({ url: 'http://127.0.0.1:5000/dashboard' }, true);
+  var request = new Http.Get('http://10.188.5.10:5000/dashboard', true);
 
   request
     .start()
