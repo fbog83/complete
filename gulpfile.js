@@ -20,6 +20,17 @@ gulp.task('sass', ['hello'], function () {
     .pipe(gulp.dest(config.css));
 });
 
+gulp.task('scripts', function() {
+    gulp.src('./app.js')
+        .pipe($.browserify({
+          insertGlobals : true,
+          debug : !gulp.env.production
+        }))
+        .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('watchify', ['browserify']);
+
 function log(msg) {
   if (typeof(msg) === 'object') {
     for (var item in msg) {
