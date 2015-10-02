@@ -1,6 +1,6 @@
 var express = require('express'),
     router = require('./router.js'),
-    port = '3000',
+    port = '4000',
     ip = '127.0.0.1';
 
 var app = express();
